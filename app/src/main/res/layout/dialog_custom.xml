@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:minWidth="280dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="24dp"
+        android:layout_marginStart="24dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#DE000000"
+        android:text="Kiritiw bolimi"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvInput1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintEnd_toEndOf="@id/tvTitle"
+        android:layout_marginTop="28dp">
+    <EditText
+        android:id="@+id/etAti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zat esimi"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvInput2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvInput1"
+        app:layout_constraintTop_toBottomOf="@id/tvInput1"
+        app:layout_constraintEnd_toEndOf="@id/tvInput1"
+        android:layout_marginTop="28dp">
+        <EditText
+            android:id="@+id/etSI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="O'lshem birlik"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvInput3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvInput2"
+        app:layout_constraintTop_toBottomOf="@id/tvInput2"
+        app:layout_constraintEnd_toEndOf="@id/tvInput2"
+        android:layout_marginTop="28dp">
+    <EditText
+        android:id="@+id/etSumma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Summa"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/btnPositive"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:minWidth="64dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="15sp"
+        android:text="Qosiw"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInput3"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+        android:id="@+id/btnNegative"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:minWidth="64dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textSize="15sp"
+        android:text="Biykarlaw"
+        android:textColor="@color/colorPrimary"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toStartOf="@id/btnPositive"
+        app:layout_constraintTop_toBottomOf="@id/tvInput3"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
