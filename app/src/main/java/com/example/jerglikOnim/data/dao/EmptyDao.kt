@@ -1,18 +1,23 @@
 package com.example.jerglikOnim.data.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.jerglikOnim.data.model.Product
-import com.example.uy_bazarligi.Bazarliq
 
 @Dao
 interface EmptyDao {
 
-@Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertProduct(product: Product)
 
-@Query("Select * from TableEmpty")
-fun getAllProducts(): List<Bazarliq>
+    @Query("Select * from TableEmpty")
+    fun getAllProducts(): List<Product>
+
+    @Update()
+    fun updateDataInsert(product: Product)
+
+    @Delete()
+    fun deleteProduct(product: Product)
+
+    @Query("Select * from TableEmpty where id=:id")
+    fun getProductById(id: Int): Product
 }
