@@ -4,22 +4,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.jerglikOnim.data.model.Product
 import kotlinx.android.synthetic.main.item.view.*
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+class ListAdapter(private val activity: MainActivity): RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     inner class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
-        fun populateModel(bazarliq: Bazarliq){
-            itemView.tvAti.text = bazarliq.nameQq
-            itemView.tvSI.text = bazarliq.olshemBirlik
-            itemView.tvSumma.text = bazarliq.summa
+        fun populateModel(product: Product, activity: MainActivity,id: Int){
+            itemView.tvAti.text = product.nameQq
+            itemView.tvSI.text = product.olshemBirlik
+            itemView.tvSumma.text = product.summa
             itemView.btnOptions.setOnClickListener {
+                activity.itemOpMn(itemView.btnOptions, product,id)
             }
         }
     }
 
-    var models: List<Bazarliq> = listOf()
+    var models: List<Product> = listOf()
     set(value) {
         field = value
         notifyDataSetChanged()
@@ -33,6 +34,6 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
     override fun getItemCount(): Int = models.size
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        holder.populateModel(models[position])
+        holder.populateModel(models[position],activity,position)
     }
 }
