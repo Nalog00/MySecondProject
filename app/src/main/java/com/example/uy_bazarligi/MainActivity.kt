@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             optionsMenu.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.itemChange -> {
-                        val dialog = CustomDialogForChange(this,id)
+                        val dialog = CustomDialogForChange(this)
                         dialog.show()
                     }
                     R.id.itemDelete -> {
