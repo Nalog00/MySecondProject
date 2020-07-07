@@ -61,17 +61,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
         dao = EmptyDatabase.getInstance(this).dao()
+        adapter.models = dao.getAllProducts()
     }
 
     // bazag'a daniy qosiw
     fun addProduct(product: Product) {
         dao.insertProduct(product)
-        adapter.models = dao.getAllProducts()
-    }
-
-    // Bazadag'i daniydi ozgertiw
-    fun changeProduct(id: Int){
-        dao.getProductById(id)
         adapter.models = dao.getAllProducts()
     }
 
@@ -98,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             optionsMenu.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.itemChange -> {
-                        val dialog = CustomDialogForChange(this, this)
+                        val dialog = CustomDialogForChange(this,id)
                         dialog.show()
                     }
                     R.id.itemDelete -> {
