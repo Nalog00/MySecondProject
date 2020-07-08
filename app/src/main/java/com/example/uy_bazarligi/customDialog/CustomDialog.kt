@@ -14,7 +14,7 @@ class CustomDialog(context: Context, private val activity: MainActivity): Dialog
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_custom)
         btnPositive.setOnClickListener {
-              activity.addProduct(Product(etAti.text.toString(), etSI.text.toString(), etSumma.text.toString()))
+              activity.addProduct(Product(nameQq = etAti.text.toString(), olshemBirlik = etSI.text.toString(),summa =  etSumma.text.toString()))
             dismiss()
         }
         btnNegative.setOnClickListener {

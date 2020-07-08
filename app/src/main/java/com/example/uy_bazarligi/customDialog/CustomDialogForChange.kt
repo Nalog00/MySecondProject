@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item.*
 import kotlinx.android.synthetic.main.update_dialog.*
 import java.net.IDN
 
-class CustomDialogForChange(private val activity: MainActivity): Dialog(activity) {
+class CustomDialogForChange(private val activity: MainActivity,private val productId: Int): Dialog(activity) {
 
     lateinit var dao: EmptyDao
     lateinit var product: Product
@@ -24,7 +24,10 @@ class CustomDialogForChange(private val activity: MainActivity): Dialog(activity
         super.onCreate(savedInstanceState)
         setContentView(R.layout.update_dialog)
         dao = EmptyDatabase.getInstance(activity).dao()
-        product = dao.getProductById(0)
+        product = dao.getProductById(productId)
+        etAti.setText(product.nameQq)
+        etSI.setText(product.olshemBirlik)
+        etSumma.setText(product.summa)
         btnPos.setOnClickListener {
             product.nameQq = etAti.text.toString()
             product.olshemBirlik = etSI.text.toString()
