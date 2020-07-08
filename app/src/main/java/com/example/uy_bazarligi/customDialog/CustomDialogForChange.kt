@@ -3,6 +3,7 @@ package com.example.uy_bazarligi.customDialog
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import com.example.jerglikOnim.data.EmptyDatabase
 import com.example.jerglikOnim.data.dao.EmptyDao
 import com.example.jerglikOnim.data.model.Product
@@ -29,14 +30,27 @@ class CustomDialogForChange(private val activity: MainActivity,private val produ
         etSI.setText(product.olshemBirlik)
         etSumma.setText(product.summa)
         btnPos.setOnClickListener {
-            product.nameQq = etAti.text.toString()
-            product.olshemBirlik = etSI.text.toString()
-            product.summa = etSumma.text.toString()
-            activity.updateProduct(product)
-            dismiss()
-        }
-        btnNeg.setOnClickListener {
-            dismiss()
+            when {
+                etAti.text.toString() == "" -> {
+                    Toast.makeText(context, "al toltirmasan bolmaydi", Toast.LENGTH_SHORT).show()
+                }
+                etSI.text.toString() == "" -> {
+                    Toast.makeText(context, "al toltirmasan bolmaydi", Toast.LENGTH_SHORT).show()
+                }
+                etSumma.text.toString() == "" -> {
+                    Toast.makeText(context, "al toltirmasan bolmaydi", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    product.nameQq = etAti.text.toString()
+                    product.olshemBirlik = etSI.text.toString()
+                    product.summa = etSumma.text.toString()
+                    activity.updateProduct(product)
+                    dismiss()
+                }
+            }
+            btnNeg.setOnClickListener {
+                dismiss()
+            }
         }
     }
 }
