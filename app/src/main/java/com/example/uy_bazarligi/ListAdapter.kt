@@ -10,12 +10,12 @@ import kotlinx.android.synthetic.main.item.view.*
 class ListAdapter(private val activity: MainActivity): RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
 
     inner class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        fun populateModel(product: Product, activity: MainActivity,id: Int){
+        fun populateModel(product: Product, activity: MainActivity){
             itemView.tvAti.text = product.nameQq
             itemView.tvSI.text = product.olshemBirlik
             itemView.tvSumma.text = product.summa
             itemView.btnOptions.setOnClickListener {
-                activity.itemOpMn(itemView.btnOptions, product,id)
+                activity.itemOpMn(itemView.btnOptions,product, product.id)
             }
         }
     }
@@ -34,6 +34,6 @@ class ListAdapter(private val activity: MainActivity): RecyclerView.Adapter<List
     override fun getItemCount(): Int = models.size
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        holder.populateModel(models[position],activity,position)
+        holder.populateModel(models[position],activity)
     }
 }
